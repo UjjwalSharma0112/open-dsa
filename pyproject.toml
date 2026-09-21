@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-dsa"
+version = "0.1.0.dev0"
+description = "Terminal-based DSA learning guide — story-wrapped questions, no judging"
+requires-python = ">=3.11"
+dependencies = [
+    "textual>=0.80",
+]
+
+[project.optional-dependencies]
+gemini = ["google-genai>=0.7"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+opendsa = "opendsa.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["opendsa*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,48 @@
+# open-dsa configuration
+# Every threshold lives here — no magic numbers in logic (guidelines.md §3).
+# v1 defaults are documented in guidelines.md §3.
+
+[app]
+database_path = "~/.opendsa/data.db"
+default_model = "gemini-2.5-flash"
+
+[context]
+last_n_turns = 8
+compaction_threshold_percent = 70
+
+[model]
+provider = "gemini"
+context_window_tokens = 1000000
+# Model override: export GEMINI_MODEL=/ GOOGLE_API_KEY= to override config/env.
+# Resolution: $GEMINI_MODEL > --model > default_model (opendsa/adapters/gemini.py).
+
+[doubts]
+loop_cap = 3
+
+[mastery]
+min_attempts = 5
+min_correct_streak = 3
+
+[difficulty]
+start = "medium"
+floor = "easy"
+
+[bank]
+path = "opendsa/data/bank.json"
+
+[flavor]
+# optional companies used to flavor generated stories (picked at random)
+companies = ["Amazon", "Uber", "Google", "Meta", "Netflix", "Airbnb", "Microsoft", "Stripe"]
+
+[curriculum]
+# FR11: fixed ordered pattern progression
+patterns = [
+    "two_pointer",
+    "sliding_window",
+    "binary_search",
+    "fast_slow_pointer",
+    "bfs_dfs",
+    "backtracking",
+    "dynamic_programming",
+    "greedy",
+]

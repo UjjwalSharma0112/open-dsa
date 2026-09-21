@@ -1,0 +1,5 @@
+[
+  {"question_id": "lc-11", "pattern": "two_pointer", "difficulty": "medium"},
+  {"question_id": "lc-15", "pattern": "two_pointer", "difficulty": "medium"},
+  {"question_id": "lc-3",  "pattern": "sliding_window", "difficulty": "medium"}
+]
