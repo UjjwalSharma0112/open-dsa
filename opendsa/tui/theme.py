@@ -37,6 +37,19 @@ Screen {
     align-horizontal: center;
 }
 
+/* quiet, minimal scrollbars (sized and colored on the scroll container) */
+Widget, VerticalScroll, ScrollableContainer, TextArea, #panel, #card-scroll {
+    scrollbar-size-vertical: 1;
+    scrollbar-size-horizontal: 1;
+    scrollbar-background: transparent;
+    scrollbar-background-hover: transparent;
+    scrollbar-background-active: transparent;
+    scrollbar-color: $border2;
+    scrollbar-color-hover: $muted;
+    scrollbar-color-active: $muted;
+    scrollbar-corner-color: transparent;
+}
+
 /* main content column is centered with a cap relative to the terminal */
 #header, #body, #input-wrap, #status {
     width: 1fr;
@@ -121,8 +134,7 @@ MarkdownCodeBlock, MarkdownFence {
     height: 1fr;
     padding: 1 3 1 3;
 }
-.turn { height: auto; width: 1fr; }
-.turn-rule { height: 1; background: $border; margin: 1 0; }
+.turn { height: auto; width: 1fr; margin-top: 1; }
 .turn-role { color: $muted; text-style: bold; padding-bottom: 1; }
 .turn-content { color: $text; }
 .turn-count { color: $muted; padding-top: 1; }
@@ -173,7 +185,6 @@ StartScreen, ResumeScreen, ProgressScreen, HelpScreen, ErrorScreen {
 .card-title { color: $bright; text-style: bold; }
 .card-sub   { color: $muted; }
 .card-line  { color: $text; }
-.card-rule  { height: 1; background: $border; margin: 1 0; }
 .card-line.muted { color: $muted; }
 .card-line.ok    { color: $success; }
 .card-line.cur   { color: $bright; text-style: bold; }

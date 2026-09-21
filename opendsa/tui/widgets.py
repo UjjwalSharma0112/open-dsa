@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from textual.binding import Binding
 from textual.containers import Horizontal, Vertical, VerticalScroll
-from textual.widgets import Markdown, Rule, Static, TextArea
+from textual.widgets import Markdown, Static, TextArea
 
 STATUS_DEFAULT = "Enter submit • /skip skip • /next next • /help commands"
 
@@ -109,9 +109,6 @@ class Conversation(VerticalScroll):
 
     # -- lifecycle ---------------------------------------------------------
 
-    def _rule(self) -> Rule:
-        return Rule(classes="turn-rule")
-
     def _append_turn(self, role: str, content: Static) -> None:
         turn = Vertical(
             Static(role, classes="turn-role"),
@@ -119,7 +116,6 @@ class Conversation(VerticalScroll):
             classes="turn",
         )
         self.mount(turn)
-        self.mount(self._rule())
 
     def _settle(self) -> None:
         self._last_assistant_streamed = False
@@ -139,7 +135,6 @@ class Conversation(VerticalScroll):
             classes="turn question",
         )
         self.mount(block)
-        self.mount(self._rule())
         self._scroll_end()
 
     def add_user(self, text: str) -> None:

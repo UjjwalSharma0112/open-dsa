@@ -47,7 +47,6 @@ class StartScreen(ModalScreen[None]):
                 "Story-based questions.\nExplain your approach.\nGet conversational feedback.",
                 classes="card-line",
             )
-            yield Static("", classes="card-rule")
             yield Static("Model", classes="card-title")
             yield Static(f"{self._provider.title()} — {self._model}", classes="card-line")
             yield Button("Start Session", variant="primary")
@@ -125,7 +124,6 @@ class ProgressScreen(ModalScreen[None]):
     def compose(self) -> ComposeResult:
         with Vertical(id="card"):
             yield Static("DSA Progress", classes="card-title")
-            yield Static("", classes="card-rule")
             with VerticalScroll(id="card-scroll"):
                 for p in self._patterns:
                     yield Static(display_pattern(p.pattern), classes="card-title")
@@ -142,7 +140,6 @@ class ProgressScreen(ModalScreen[None]):
                             f"Difficulty     {p.difficulty.value.title()}",
                             classes="card-line",
                         )
-                    yield Static("", classes="card-rule")
             yield Static("Curriculum", classes="card-title")
             for pattern in self._curriculum:
                 name = display_pattern(pattern)
@@ -178,7 +175,6 @@ class HelpScreen(ModalScreen[None]):
                 "/quit      end the session",
                 classes="card-line",
             )
-            yield Static("", classes="card-rule")
             yield Static("Keys", classes="card-title")
             yield Static(
                 "Enter         submit your answer\n"
